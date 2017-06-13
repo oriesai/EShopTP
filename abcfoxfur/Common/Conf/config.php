@@ -13,6 +13,9 @@ return array(
 //set custom constant directory in an array
     'TMPL_PARSE_STRING' => array(
         '__ADMIN__' => __ROOT__.'/Public/Admin',
-        '__HOME__' => __ROOT__.'/Public/Home'
-    )
+        '__HOME__' => __ROOT__.'/Public/Home',
+        '__EDITOR__' => __ROOT__.'/Public/Editor',
+    ),
+    // 默认参数过滤方法 用于I函数...
+        'DEFAULT_FILTER'        =>  'filterXSS',
 );
