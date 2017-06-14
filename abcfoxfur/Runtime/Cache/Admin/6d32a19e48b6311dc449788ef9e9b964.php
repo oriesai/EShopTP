@@ -58,7 +58,7 @@
         </ul>
     </div>
     <div class="formbody">
-        <div class="formtitle"><span class="current">基本信息</span><span>商品描述</span><span>商品相冊</span></div>
+        <div class="formtitle"><span class="current">基本信息</span><span>商品描述</span></div>
         <form action="" method="post" enctype="multipart/form-data">
             <ul class="forminfo">
                 <li>
@@ -66,10 +66,10 @@
                     <input name="product_name" placeholder="请输入商品名称" type="text" class="dfinput" /><i>名称不能超过30个字符</i></li>
                 <li>
                     <label>product price</label>
-                    <input name="product_price" placeholder="请输入商品价格" type="text" class="dfinput" /><i></i></li>
+                    <input name="product_price" placeholder="请输入商品价格" type="text" class="dfinput" value="99" /><i></i></li>
                 <li>
                     <label>product quantity</label>
-                    <input name="product_number" placeholder="请输入商品数量" type="text" class="dfinput" />
+                    <input name="product_number" placeholder="请输入商品数量" type="text" class="dfinput" value="99" />
                 </li>
                 <li>
                     <label>create time</label>
@@ -77,7 +77,7 @@
                 </li>
                 <li>
                     <label>product weight</label>
-                    <input name="product_weight"  type="text" class="dfinput" placeholder="请输入商品重量"/>
+                    <input name="product_weight"  type="text" class="dfinput" placeholder="请输入商品重量" value="50"/>
                 </li>
                 <li>
                     <label>product logo</label>
@@ -95,9 +95,6 @@
                     <label>product_description</label>
                     <textarea name="product_desc" placeholder="请输入商品描述" id='product_desc' cols="" rows="" class="textinput textinput2"></textarea>
                 </li>
-            </ul>
-            <ul class="forminfo">
-                hello2!
             </ul>
             <ul class="btn">
                 <li>

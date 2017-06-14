@@ -43,9 +43,14 @@
         border:1px solid #ccc;
         padding:4px;
         margin: 2px;
+        text-align:center;
     }
     .photo_list li img{
-        width: 80px;
+        width: 120px;
+    }
+    .del_photo{
+        cursor:pointer;
+        font-size: 20px;
     }
 </style>
 </head>
@@ -62,6 +67,7 @@
         <ul class="photo_list">
             <volist name="list" id="v">
                 <li>
+                    <span class="del_photo" data-id="{$v.photo_id}">[ - ]</span><br/>
                     <!--insert lightbox plugin-->
                   <a href="__UPLOADS__/{$v.src}" data-lightbox="abc" data-title="product photo"><img src="__UPLOADS__/{$v.thumb}" alt=""></a>
                 </li>
@@ -99,5 +105,23 @@
     //remove file upload section----------------------
     $('.forminfo').on('click','.minus',function (e) {
       $(e.target).parent().remove();
+    });
+    //remove photo from gallery----------------
+    $('.del_photo').click(function () {
+        //define this so that closure objects can use
+       var _this =$(this);
+       var id =_this.attr('data-id');
+       //use ajax to delete photos in db and location
+       $.get(
+          '{:U("Products/delPhoto")}',
+           {'photo_id':id},
+           function (res) {
+               if (res){
+                   _this.parent().remove();
+               }else{
+                   alert('deletion failed!');
+               }
+           },
+           'text');
     });
 </script>

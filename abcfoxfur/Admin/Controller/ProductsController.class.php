@@ -39,106 +39,155 @@ class ProductsController extends Controller
             //if gid ==0 meaning it comes from other pages then the link, give error message
             $this->error('illegal request,please login');
         };
-            $productPhotos = D('ProductPhotos');
+        $productPhotos = D('ProductPhotos');
         if (IS_POST) {
-            //return thumb and src url
-            $filesinfo = $this->upload();
+            $product = D('Product');
+            //return thumb and src url (upload function is in product model
+            // detect error in photos by using loop, if there is error, it will equal 1
+            $flag = 0;
+            $i = 0;
+            while ($i < count($_FILES['product_photos']['name'])) {
+                $_FILES['product_photos']['error'][$i] ? ($flag = 1) : '';
+                $i++;
+            }
+            if (!$flag) {
+                $filesinfo = $product->upload();
+            } else {
+                $this->error('you cannot leave any box empty!');
+            }
 
             //insert into db----------
             foreach ($filesinfo as $k => $v) {
                 $data['src'] = $v['src'];
                 $data['thumb'] = $v['thumb'];
-            //save pid in the array
+                //save pid in the array
                 $data['product_id'] = $gid;
                 $res = $productPhotos->add($data);
                 if (!$res) {
-                    $this->error('there is a problem with one of the upload files,please try again', '', 5);die;
-                }else{
-                    $this->success('upload photos success!','',3);die;
+                    $this->error('there is a problem with one of the upload files,please try again', '', 3);
                 }
             }
+            $this->success('upload photos success!', '', 3);
+            die;
         }
         //select all thumbs and photos respective to id
-        $this->list = $productPhotos->where('product_id='.$gid)->select();
+        $this->list = $productPhotos->getList($gid);
         $this->display();
     }
 
 //handling add----------------------------
-    public function add()
+    public
+    function add()
     {
         if (IS_POST) {
-            $fileinfo = $this->upload();
-            //put src and thumb from upload to post array
-            $_POST['product_big_logo'] = $fileinfo[0]['src'];
-            $_POST['product_small_logo'] = $fileinfo[0]['thumb'];
-//end of processing uplaod logo ---------
-
-            $products = D('Product');
-            //if create failed, get error msg, validate, auto and map in model when create
-            if (!$data = $products->create()) {
-                $this->error($products->getError());
-            }
-//add inserted data to db
-            $res = $products->add($data);
-            if ($res) {
-                $this->success('input success','',5);
-                die;
+            if (!$_FILES['product_big_logo']['error'][0]) {
+                //have to create product obj first to verify other informations before moving photos to uploads folder
+                $products = D('Product');
+                $res = $products->addProduct();
+                if ($res) {
+                    $this->success('input success', '', 5);
+                    die;
+                } else {
+                    $this->error('insert failed', '', 5);
+                }
             } else {
-                $this->error('insert failed','',5);
+                $this->error('image error!');
             }
         }
         $this->display();
     }
 
-//upload function -------------------------
-    public function upload()
+
+//delete photo from photo album-----------------------
+    public
+    function delPhoto()
     {
-        // detect error in photos by using loop
-        $flag = 0;
-        $i = 0;
-        while ($i < count($_FILES['product_photos'])) {
-            $_FILES['product_photos']['error'][$i] ? ($flag = 1) : 0;
-            $i++;
+        if (IS_AJAX) {
+            $productPhoto = D('ProductPhotos');
+//        receive id from get method,filter id
+            $id = I('get.photo_id', 0, 'intval');
+            //store data in info before deleting the record
+            echo($productPhoto->deletePhoto($id));
+
         }
-        if (!$flag) {
-//        configuration for upload pictures criteria
-            $config = array(
-                'maxSize' => 8388608,
-                'rootPath' => "./Public/Uploads",
-                'savePath' => '/Products/',
-                'exts' => array('jpg', 'gif', 'png', 'jpeg'),
-            );
-//        instantiate uploads obj
-            $Upload = new \Think\Upload($config);
-            $info = $Upload->upload();
-// -------- generate thumb ----------------------
-            //if create upload object successfully
-            if ($info) {
-                $Image = new \Think\Image();
-                //put photos in an array by foreach loop
-                $data = [];
-                foreach ($info as $key => $item) {
-                    //product big logo is the complete file name(exclude folder)
-                    $src = $item['savepath'] . $item['savename'];
-                    $thumb = $item['savepath'] . 'thumb_' . $item['savename'];
-                    $data['src'] = $src;
-                    //generate small logo name
-                    $data['thumb'] = $thumb;
-                    //open the thumb's original image
-                    $Image->open($config['rootPath'] . $src);
-                    $Image->thumb(220, 220, 2)->save($config['rootPath'] . $thumb);
-                    //put src and thumb img name into a 2d array to send back to main function
-                    $fileinfo[$key]['src'] = $src;
-                    $fileinfo[$key]['thumb'] = $thumb;
-                }
-                return $fileinfo;
+    }
+
+
+//delete item from item list------------------------
+    public
+    function delItem()
+    {
+        //get gid from item list
+        $id = I('get.gid', 0, 'intval');
+        if (!$id) {
+            $this->error('illegal visit');
+            die;
+        }
+        //find id record and delete it,also unlink src and thumb pic
+        $product = D('Product');
+        $res = $product->delProduct($id);
+        if ($res == 'empty') {
+            $this->success('delete sucessfully', U('index'));
+        }
+        if ($res == 1 || $res == 'empty') {
+            //delete record's photo from album
+            $productPhotos = D('ProductPhotos');
+            $res2 = $productPhotos->delAllProductPhotos($id);
+            if ($res2) {
+                $this->success('delete sucessfully', U('index'));
+                die;
             } else {
-//                get error message for 5s and die to prevent from going onwards
-                $this->error($Upload->getError(), '', 5);
+                $this->error('delete failed');
+            }
+        }
+
+    }
+
+//edit item-----------------------------------------
+    public
+    function edit()
+    {
+        $product = D('Product');
+        if (IS_POST) {
+            if (!$_FILES['product_big_logo']['error'][0]) {
+
+                //use upload()
+                $fileinfo = $product->upload();
+                if ($fileinfo) {
+
+                    //if old file exists and new file replaces old files, unlink old files
+                    $big_logo = './Public/Uploads' . I('post.product_big_logo');
+                    $small_logo = './Public/Uploads' . I('post.product_small_logo');
+                    if (file_exists($big_logo)) {
+                        unlink($big_logo);
+                    };
+                    if (file_exists($small_logo)) {
+                        unlink($small_logo);
+                    };
+                    $_POST['product_big_logo'] = $fileinfo[0]['src'];
+                    $_POST['product_small_logo'] = $fileinfo[0]['thumb'];
+                };
+            }
+
+//            verify and autofill by create()
+            if (!$product->create()) {
+                $this->error($product->geterror());
+            }
+//            p($product->create());
+            //save the modified error
+            $res = $product->save();
+            if ($res) {
+                $this->success('update successful');
+                die;
+            } else {
+                $this->error('update failed');
                 die;
             }
-        } else {
-            $this->error('you have not uplaod any photos!');
+
         }
+        //fetch data from the corresponding id
+        $id = I('get.gid', 0, 'intval');
+        $this->info = $product->find($id);
+        $this->display();
     }
 }
