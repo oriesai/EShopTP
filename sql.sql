@@ -19,3 +19,10 @@ create table eco_product(
     key (product_price),
     key (created_time)
 ) engine=Innodb charset=utf8 comment='product table';
+
+CREATE TABLE eco_product_photos(
+`photo_id` INT unsigned NOT NULL auto_increment comment 'auto id',
+`product_id` INT unsigned not NULL comment 'product id',
+`src` VARCHAR (250) NOT NULL comment 'product pic url',
+PRIMARY KEY (`photo_id`)
+)engine=innodb charset=utf8 comment='product photos table'

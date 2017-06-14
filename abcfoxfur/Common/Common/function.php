@@ -23,3 +23,7 @@ function filterXSS($string){
     // 过滤字符串
     return $obj -> purify($string);
 }
+
+function p($obj){
+    dump($obj);die;
+}

@@ -59,7 +59,7 @@
     </div>
     <div class="formbody">
         <div class="formtitle"><span class="current">基本信息</span><span>商品描述</span><span>商品相冊</span></div>
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
             <ul class="forminfo">
                 <li>
                     <label>product name</label>
@@ -81,7 +81,7 @@
                 </li>
                 <li>
                     <label>product logo</label>
-                    <input name="product_big_logo" type="file"  />
+                    <input name="product_big_logo[]" type="file"  />
                 </li>
 
                 <li><label>put on shelf?</label><cite><input name="is_show" type="radio" value="1" checked="checked" />onshelf&nbsp;&nbsp;&nbsp;&nbsp;<input name="is_show" type="radio" value="0" />offshelf</cite>
@@ -101,7 +101,6 @@
             </ul>
             <ul class="btn">
                 <li>
-                    <label>&nbsp;</label>
                     <input id="btnSubmit" type="submit" class="btn" value="确认保存" />
                 </li>
             </ul>
@@ -129,5 +128,15 @@
     var ue=UE.getEditor('product_desc',{
        initialFrameWidth:800,
        initialFrameHeight:200,
+         toolbars: [[
+            'fullscreen', 'source', '|', 'undo', 'redo', '|',
+            'bold', 'italic', 'underline', 'fontborder', 'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 'blockquote', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'selectall', 'cleardoc', '|',
+            'rowspacingtop', 'rowspacingbottom', 'lineheight', '|',
+            'customstyle', 'paragraph', 'fontfamily', 'fontsize', '|',
+            'directionalityltr', 'directionalityrtl', 'indent', '|',
+            'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'touppercase', 'tolowercase', '|',
+            'link', 'unlink', 'anchor', '|', 'imagenone', 'imageleft', 'imageright', 'imagecenter', '|',
+            'simpleupload', 'insertimage', 'emotion', 'scrawl', 'insertvideo', 'music', 'attachment', 'map', 'gmap', 'insertframe', 'insertcode', 'webapp', 'pagebreak', 'template', 'background', '|'
+        ]]
     });
 </script>

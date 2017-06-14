@@ -31,4 +31,8 @@ class ProductModel extends Model{
         }
         return time();  //get current timestamp
 }
+//for getting list for index.html
+    public function getList($firstRow,$listRows){
+        return $this->field('product_id,product_name,product_price,product_number,product_small_logo,is_show')->limit($firstRow.','.$listRows)->select();
+    }
 }
