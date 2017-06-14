@@ -6,6 +6,8 @@
     <title>add product</title>
     <link href="/Public/Admin/css/style.css" rel="stylesheet" type="text/css" />
     <script language="JavaScript" src="/Public/Admin/js/jquery.js"></script>
+    <link rel="stylesheet" href="/Public/Admin/lightbox/css/lightbox.css" />
+
 
 
 
@@ -59,7 +61,8 @@
         <div class="formtitle"><span class="current">商品相冊</span></div>
         <ul class="photo_list">
             <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?><li>
-                  <img src="/Public/Uploads/<?php echo ($v["thumb"]); ?>" alt="">
+                    <!--insert lightbox plugin-->
+                  <a href="/Public/Uploads/<?php echo ($v["src"]); ?>" data-lightbox="abc" data-title="product photo"><img src="/Public/Uploads/<?php echo ($v["thumb"]); ?>" alt=""></a>
                 </li><?php endforeach; endif; else: echo "" ;endif; ?>
         </ul>
         <form action="" method="post" enctype="multipart/form-data">
@@ -77,6 +80,8 @@
 </body>
 
 </html>
+<script language="JavaScript" src="/Public/Admin/lightbox/js/jquery-1.10.1.js"></script>
+<script language="JavaScript" src="/Public/Admin/lightbox/js/lightbox.js"></script>
 <script>
    //tab selection and section hidding------------------
     $('.formtitle span').click(function(){
