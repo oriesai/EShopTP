@@ -82,7 +82,8 @@
                     <!--jump to photos action, bringing gid with it-->
                     <a href="<?php echo U('Products/Photos',array('gid' =>$v['product_id']));?>" class="tablelink">更多圖片</a>
                     <a href="#" class="tablelink">查看</a>
-                    <a href="#" class="tablelink"> 删除</a>
+                    <a href="<?php echo U('Products/edit',array('gid' =>$v['product_id']));?>" class="tablelink"> 編輯</a>
+                    <a href="<?php echo U('Products/delItem',array('gid' =>$v['product_id']));?>" class="tablelink"> 删除</a>
                 </td>
             </tr><?php endforeach; endif; else: echo "" ;endif; ?>
         </tbody>
