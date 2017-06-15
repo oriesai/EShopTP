@@ -58,7 +58,7 @@
         </ul>
     </div>
     <div class="formbody">
-        <div class="formtitle"><span class="current">基本信息</span><span>商品描述</span></div>
+        <div class="formtitle"><span class="current">基本信息</span><span>商品描述</span><span>商品屬性</span></div>
         <form action="" method="post" enctype="multipart/form-data">
             <ul class="forminfo">
                 <li>
@@ -92,8 +92,17 @@
             </ul>
             <ul class="forminfo">
                 <li>
-                    <label>product_description</label>
+                    <label>product description</label>
                     <textarea name="product_desc" placeholder="请输入商品描述" id='product_desc' cols="" rows="" class="textinput textinput2"></textarea>
+                </li>
+            </ul>
+            <ul class="forminfo">
+                <li>
+                    <label>product type list</label>
+                    <select name="type_id" class="dfinput">
+                        <option value="0">--请选择--</option>
+                        <?php if(is_array($type_list)): $i = 0; $__LIST__ = $type_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?><option value="<?php echo ($v["type_id"]); ?>" /><?php echo ($v["type_name"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+                    </select>
                 </li>
             </ul>
             <ul class="btn">
@@ -135,5 +144,43 @@
             'link', 'unlink', 'anchor', '|', 'imagenone', 'imageleft', 'imageright', 'imagecenter', '|',
             'simpleupload', 'insertimage', 'emotion', 'scrawl', 'insertvideo', 'music', 'attachment', 'map', 'gmap', 'insertframe', 'insertcode', 'webapp', 'pagebreak', 'template', 'background', '|'
         ]]
+    });
+//ajax linking product type with product attribute categories form
+    $('select[name=type_id]').change(function () {
+        var current = $(this).val();
+        //prevent from sending request via ajax if current value ==0
+        if (current ==0){
+            return false;
+        }
+        //remove old attribute items
+        $('.newItem').remove();
+        //save select tab obj for appending new items after li
+        var _this =$(this);
+        //send ajax request by get
+        $.get('<?php echo U("Products/getAttrCateById");?>',{'type_id':current},function (data) {
+            //group li string together
+            var html='';
+            //for each object items  from json, traversate using foreach
+            $(data).each(function (key,value) {
+            html+="<li class='newItem'>";
+            html+='<label>'+value.attr_cate_name+'</label>';
+                //if cate expression =0 -->it is a text input, if its 1 it is a list
+                if (value.attr_cate_exp == 0){
+            html+='<input name="" placeholder="please enter'+value.attr_cate_name+'" type="text" class="dfinput" /><i></i>';
+                }else{
+             //split the string of category values into individual element
+            var vals = value.attr_cate_val.split(',');
+            html+='<select name="" class="dfinput">';
+            //loop each attribute value in the category
+            for(var i=0;i<vals.length;i++ ){
+                //i as the index in the array startying from 0,  vals[i] is the actual value string
+            html+='<option value="'+vals[i]+'">'+vals[i]+'</option>';
+            }
+            html+='</select>';
+                }
+            html+='</li>';
+            });
+            _this.parent().after(html);
+        });
     });
 </script>

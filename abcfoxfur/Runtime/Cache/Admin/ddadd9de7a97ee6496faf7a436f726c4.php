@@ -45,9 +45,9 @@
             <div class="title"><span><img src="/Public/Admin/images/leftico03.png" /></span>商品分类</div>
             <ul class="menuson">
                 <li>
-                    <cite></cite><a href="#">分类列表</a><i></i></li>
+                    <cite></cite><a href="<?php echo U('ProductType/index');?>" target="rightFrame">分类列表</a><i></i></li>
                 <li>
-                    <cite></cite><a href="#">添加分类</a><i></i></li>
+                    <cite></cite><a href="<?php echo U('ProductType/add');?>" target="rightFrame">添加分类</a><i></i></li>
             </ul>
         </dd>        
         <dd>
@@ -56,9 +56,9 @@
             </div>
             <ul class="menuson">
                 <li>
-                    <cite></cite><a href="#">类型列表</a><i></i></li>
+                    <cite></cite><a href="#" target="rightFrame">类型列表</a><i></i></li>
                 <li>
-                    <cite></cite><a href="#">添加类型</a><i></i></li>
+                    <cite></cite><a href="#" target="rightFrame">添加类型</a><i></i></li>
             </ul>
         </dd>
         <dd>

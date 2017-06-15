@@ -94,6 +94,7 @@ class ProductsController extends Controller
                 $this->error('image error!');
             }
         }
+        $this->type_list = D('ProductType')->select();
         $this->display();
     }
 
@@ -189,5 +190,20 @@ class ProductsController extends Controller
         $id = I('get.gid', 0, 'intval');
         $this->info = $product->find($id);
         $this->display();
+    }
+
+    //getting product attribute categories by product type id---------------------------------------------------------
+    public function getAttrCateById()
+    {
+        if (IS_AJAX) {
+            $type_id = I('type_id', 0, 'intval');
+            //if product type id is larger then 0,fetch all attr cate fields
+            if($type_id >0){
+            $attrcate = D('ProductAttributeCate');
+            $data = $attrcate->getAttrCatesById($type_id);
+            //tp provided functions for encoding ajax
+            $this->ajaxReturn($data);
+            }
+        }
     }
 }
