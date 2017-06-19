@@ -8,9 +8,9 @@
 
 namespace Admin\Controller;
 
-use Think\Controller;
+use Admin\Controller\CommonController;
 
-class ProductsController extends Controller
+class ProductsController extends CommonController
 {
     public function index()
     {
@@ -85,6 +85,14 @@ class ProductsController extends Controller
                 $products = D('Product');
                 $res = $products->addProduct();
                 if ($res) {
+                    //get all data from post
+                    $data = I('post.');
+                    //after adding product, res obtains the product id,$data obtains all the post data
+                    $result = D('ProductAttribute')->addAllAttr($res, $data);
+                    if (!$result) {
+                        $this->error(D('ProductAttribute')->getError());
+                        die;
+                    }
                     $this->success('input success', '', 5);
                     die;
                 } else {
@@ -198,11 +206,11 @@ class ProductsController extends Controller
         if (IS_AJAX) {
             $type_id = I('type_id', 0, 'intval');
             //if product type id is larger then 0,fetch all attr cate fields
-            if($type_id >0){
-            $attrcate = D('ProductAttributeCate');
-            $data = $attrcate->getAttrCatesById($type_id);
-            //tp provided functions for encoding ajax
-            $this->ajaxReturn($data);
+            if ($type_id > 0) {
+                $attrcate = D('ProductAttributeCate');
+                $data = $attrcate->getAttrCatesById($type_id);
+                //tp provided functions for encoding ajax
+                $this->ajaxReturn($data);
             }
         }
     }

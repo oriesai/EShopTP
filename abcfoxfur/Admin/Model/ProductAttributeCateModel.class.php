@@ -14,4 +14,5 @@ class ProductAttributeCateModel extends Model{
         //__product_type__ is an thinkphp weay to avoid different prefix for tables
        return $this->alias('attr')->join('LEFT JOIN __PRODUCT_TYPE__ pt ON attr.type_id=pt.type_id')->where('attr.type_id='.$type_id)->select();
     }
+
 }

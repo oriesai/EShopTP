@@ -8,9 +8,9 @@
 
 namespace Admin\Controller;
 
-use Think\Controller;
+use Admin\Controller\CommonController;
 
-class ProductTypeController extends Controller
+class ProductTypeController extends CommonController
 {
     public function index()
     {

@@ -47,6 +47,9 @@
         height: 300px;
         border:none;
     }
+    .add{
+        cursor:pointer;
+    }
 </style>
 </head>
 <body>
@@ -96,7 +99,7 @@
                     <textarea name="product_desc" placeholder="请输入商品描述" id='product_desc' cols="" rows="" class="textinput textinput2"></textarea>
                 </li>
             </ul>
-            <ul class="forminfo">
+            <ul class="forminfo product_attr_cate">
                 <li>
                     <label>product type list</label>
                     <select name="type_id" class="dfinput">
@@ -165,14 +168,17 @@
             //for each object items  from json, traversate using foreach
             $(data).each(function (key,value) {
             html+="<li class='newItem'>";
-            html+='<label>'+value.attr_cate_name+'</label>';
+            html+='<label><span class="add">[ + ]</span>'+value.attr_cate_name+'</label>';
                 //if cate expression =0 -->it is a text input, if its 1 it is a list
                 if (value.attr_cate_exp == 0){
-            html+='<input name="" placeholder="please enter'+value.attr_cate_name+'" type="text" class="dfinput" /><i></i>';
+//                    add a hidden input that saves attribute category id and name in 2 arrays, from the index we can traversate it
+            html+='<input type="hidden" name="attr_cate_ids[]" value="'+value.attr_cate_id+'">';
+            html+='<input name="attr_values[]" placeholder="please enter'+value.attr_cate_name+'" type="text" class="dfinput" /><i></i>';
                 }else{
              //split the string of category values into individual element
             var vals = value.attr_cate_val.split(',');
-            html+='<select name="" class="dfinput">';
+             html+='<input type="hidden" name="attr_cate_ids[]" value="'+value.attr_cate_id+'">';
+            html+='<select name="attr_values[]" class="dfinput">';
             //loop each attribute value in the category
             for(var i=0;i<vals.length;i++ ){
                 //i as the index in the array startying from 0,  vals[i] is the actual value string
@@ -185,4 +191,15 @@
             _this.parent().after(html);
         });
     });
+    //add new product attr cate--------------------------------------
+    $('.product_attr_cate').on('click','.add',function () {
+        var newLi =$(this).parents('.newItem').clone().find('span').html('[ - ]').removeClass('add').addClass('div').parents('.newItem');
+        //add new cloned li after current item
+        $(this).parents('.newItem').after(newLi);
+    });
+    //remove product attr cate-------------------------------------
+    $('.product_attr_cate').on('click','.div',function () {
+        $(this).parents('li').remove();
+    });
+
 </script>

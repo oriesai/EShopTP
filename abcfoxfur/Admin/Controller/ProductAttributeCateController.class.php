@@ -6,9 +6,9 @@
  * Time: 4:50 PM
  */
 namespace Admin\Controller;
-use Think\Controller;
+use Admin\Controller\CommonController;
 
-class ProductAttributeCateController extends Controller{
+class ProductAttributeCateController extends CommonController{
     public function index(){
         $this->type_id = I('get.type_id',0,'intval');
         //get all attributes categories from product type

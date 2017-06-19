@@ -52,3 +52,30 @@ attr_value VARCHAR (32) NOT NULL comment'product attribute value',
 PRIMARY KEY (attr_id),
 KEY (attr_cate_id)
 )engine=Innodb charset=utf8 comment='product type attributes table'
+
+CREATE TABLE `eco_admin`(
+`aid` SMALLINT unsigned NOT NULL auto_increment comment 'primary key id',
+`username` VARCHAR (32) NOT NULL comment 'admin username',
+`password` VARCHAR (40) NOT NULL comment 'admin password',
+`salt` CHAR (5) NULL comment 'salt value',
+`login_time` INT(10) unsigned NOT NULL comment 'last login time',
+`role_id` tinyint(3) unsigned NOT NULL DEFAULT 0 comment 'role id, primary key for eco_role',
+PRIMARY key(`aid`)
+)engine=innodb comment='administrator table'
+
+CREATE TABLE `eco_role`(
+`role_id` SMALLINT(6) unsigned NOT NULL auto_increment comment 'role id',
+`role_name` VARCHAR (20) NOT NULL comment 'role name',
+`role_auth_ids` VARCHAR (128) NULL DEFAULT '' comment 'authority e.g. 1,2,4,5; primary key in auth table',
+`role_auth_ac` text NULL comment 'authorization action-controller e.g. index-index,product-add',
+PRIMARY KEY (`role_id`)
+)engine=innodb comment='role table'
+
+CREATE TABLE `eco_auth`(
+`auth_id` SMALLINT(6) unsigned NOT NULL auto_increment comment 'auth id',
+`auth_name` VARCHAR (20) NOT NULL comment 'auth name',
+`auth_pid` SMALLINT(6) unsigned NOT NULL comment 'pid of auth',
+`auth_controller` VARCHAR(32) NOT null DEFAULT '' comment 'authorized controller',
+`auth_action` VARCHAR(32) NOT null DEFAULT '' comment 'authorized action',
+PRIMARY KEY (`auth_id`)
+)engine=innodb comment='auth table'

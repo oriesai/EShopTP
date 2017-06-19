@@ -5,6 +5,7 @@
  * Date: 6/13/2017
  * Time: 7:32 PM
  */
+//filtering entering data----------------------------------------------
 function filterXSS($string){
     //相对index.php入口文件，引入HTMLPurifier.auto.php核心文件
     require_once './Public/Admin/htmlpurifier/HTMLPurifier.auto.php';
@@ -24,6 +25,14 @@ function filterXSS($string){
     return $obj -> purify($string);
 }
 
+//testing php code-----------------------------------------------------
 function p($obj){
     dump($obj);die;
+}
+
+//encrypting password with formula------------------------------------------------
+//pwd (string) -- pw that need to be encrypted
+//salt (string) -- salt value
+function password($pwd,$salt){
+    return sha1($salt.sha1($pwd).sha1($salt));
 }
