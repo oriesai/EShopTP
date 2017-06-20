@@ -13,7 +13,7 @@ class IndexController extends CommonController
 
     public function left()
     {
-        $role_id =$_SESSION['role_id'];
+        $role_id =$_SESSION['Admin_role_id'];
         $roleInfo = D('Role')->find($role_id);
         //fetch top auth
         $where = "auth_pid=0 AND auth_id IN ({$roleInfo['role_auth_ids']})";
@@ -53,10 +53,9 @@ class IndexController extends CommonController
                 if (password($pwd, $res['salt']) != $res['password']) {
                     $this->error('username or password error!'); die;
                 }
-                session('username',$res['username']); //store username
-                session('is_login',1); //store login status
-                session('role_id',$res['role_id']);//store role info of the admin
-
+                session("Admin_username",$res['username']); //store username
+                session('Admin_is_login',1); //store login status
+                session('Admin_role_id',$res['role_id']);//store role info of the admin
                 //update last login time
                 $data = array(
                   'aid' =>$res['aid'], //designated id
@@ -65,7 +64,7 @@ class IndexController extends CommonController
 
                 D('Admin')->save($data); //update data
 
-                $this->success("welcome Back,$username!", U('index'));die;
+                $this->success("welcome Back,$username!", U('index/index'));die;
             }else{
                 //username error
                 $this->error('username or password error!');die;
@@ -76,13 +75,10 @@ class IndexController extends CommonController
     }
     //logout function(INCOMPLETE)-------------------------------------------------
     public function logout(){
-        session_start();
-        session_unset($_SESSION['username']);
-        session_unset($_SESSION['is_login']);
-        $res = session_destroy();
-        if($res){
+       session('Admin_username',null);
+       session('Admin_is_login',null);
+       session('Admin_role_id',null);
             $this->redirect('login');
-        }
     }
 
     //for generating captcha------------------------------------------

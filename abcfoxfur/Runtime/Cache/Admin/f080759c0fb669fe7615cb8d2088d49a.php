@@ -36,7 +36,7 @@
             <li><a href="<?php echo U('logout');?>" target="_parent">退出</a></li>
         </ul>
         <div class="user">
-            <span>欢迎您，admin</span>
+            <span>欢迎您，<?php echo (session('Admin_username')); ?></span>
         </div>
     </div>
 </body>

@@ -21,8 +21,9 @@ class AuthController extends CommonController
 
     public function index()
     {
-        //get all auth info out and assign to view
-        $this->list = $this->auth->select();
+        //get all auth info out , and use recursion to get the level assigned and the rows sorted
+        $authList = $this->auth->field('auth_id id,auth_name,auth_pid pid,auth_controller,auth_action')->select();
+        $this->authList =recursion($authList);
         $this->display();
     }
 

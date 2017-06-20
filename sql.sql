@@ -79,3 +79,21 @@ CREATE TABLE `eco_auth`(
 `auth_action` VARCHAR(32) NOT null DEFAULT '' comment 'authorized action',
 PRIMARY KEY (`auth_id`)
 )engine=innodb comment='auth table'
+
+CREATE TABLE `eco_member`(
+  `member_id` mediumint unsigned NOT NULL auto_increment comment 'primary key id',
+  `member_name` VARCHAR (32) NOT NULL comment 'member name',
+  `member_email` VARCHAR (120) NOT NULL DEFAULT '',
+  `member_mobile` CHAR (15) NULL comment 'cell phone number',
+  `member_pwd` CHAR (40) NOT NULL comment 'member password',
+  `member_salt` CHAR (10) NOT NULL comment 'salt for encryption',
+  `openid` CHAR(32) NOT NULL DEFAULT '' comment 'qq registers openid info',
+  `member_gender` tinyint NOT NULL DEFAULT 1 comment '1=male,2=female,3=secret',
+  `member_activ` tinyint NOT NULL DEFAULT 0 comment 'activation status 0=no 1=yes',
+  `member_activ_code` CHAR(40) NOT NULL DEFAULT '' comment 'verify activation code' ,
+  `created_time` INT unsigned NOT NULL comment 'register time',
+  `login_time` INT unsigned NOT NULL comment 'login time',
+  `is_del` tinyint NOT NULL DEFAULT 0 comment '0=normal ,1=account deleted',
+  PRIMARY KEY (`member_id`),
+  KEY `member_name` (`member_name`)
+)engine=innodb comment='member table'

@@ -55,21 +55,22 @@
                     <th>Authorization ID</th>
                     <th>Auth name</th>
                     <th>Auth pid</th>
+                    <th>show in menu?</th>
                     <th>Auth controller</th>
                     <th>Auth action</th>
                     <th>操作</th>
                 </tr>
             </thead>
             <tbody>
-            <volist name="list" id="v">
+            <volist name="authList" id="v">
 
                 <tr>
                     <td>
                         <input name="" type="checkbox" value="" />
                     </td>
-                    <td>{$v.auth_id}</td>
-                    <td>{$v.auth_name}</td>
-                    <td>{$v.auth_pid}</td>
+                    <td>{$v.id}</td>
+                    <td>{$v.level|str_repeat='&nbsp;&nbsp;&nbsp;',###*2}|--{$v.auth_name}</td>
+                    <td> <if condition="$v['is_show'] eq 1">show<else/>no show</if></td>
                     <td>{$v.auth_controller}</td>
                     <td>{$v.auth_action}</td>
                     <td><a href="{:U('edit',array('auth_id' => $v['auth_id']))}" class="tablelink">修改</a> <a href="{:U('delete',array('auth_id' => $v['auth_id']))}" class="tablelink"> 删除</a></td>

@@ -36,3 +36,17 @@ function p($obj){
 function password($pwd,$salt){
     return sha1($salt.sha1($pwd).sha1($salt));
 }
+
+function recursion($list,$pid=0,$level=0){
+    //static tree for storing organized row
+    static $tree =array();
+    foreach($list as $row){
+        if($row['pid']==$pid){
+            //assign current level and store row in tree
+            $row['level']=$level;
+            $tree[] =$row;
+            recursion($list,$row['id'],$level+1);
+        }
+    }
+    return $tree;
+}

@@ -31,17 +31,17 @@
 <body style="background:#f0f9fd;">
 <div class="lefttop"><span></span>※ 控制面板 ※</div>
 <dl class="leftmenu">
-    <?php if(is_array($topAuth)): $i = 0; $__LIST__ = $topAuth;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$top): $mod = ($i % 2 );++$i;?><dd>
+    <?php if(is_array($topAuth)): $i = 0; $__LIST__ = $topAuth;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$top): $mod = ($i % 2 );++$i; if($top['is_show'] == '1'): ?><dd>
             <div class="title">
                 <span><img src="/Public/Admin/images/leftico01.png"/></span><?php echo ($top["auth_name"]); ?>
             </div>
             <ul class="menuson">
-                <?php if(is_array($subAuth)): $i = 0; $__LIST__ = $subAuth;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sub): $mod = ($i % 2 );++$i; if($sub['auth_pid'] == $top['auth_id']): ?><li>
+                <?php if(is_array($subAuth)): $i = 0; $__LIST__ = $subAuth;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sub): $mod = ($i % 2 );++$i; if($sub['auth_pid'] == $top['auth_id'] and $sub['is_show'] == '1'): ?><li>
                             <cite></cite><a href="<?php echo U($sub['auth_controller'].'/'.$sub['auth_action']);?>"
                                             target="rightFrame"><?php echo ($sub["auth_name"]); ?></a><i></i>
                         </li><?php endif; endforeach; endif; else: echo "" ;endif; ?>
             </ul>
-        </dd><?php endforeach; endif; else: echo "" ;endif; ?>
+        </dd><?php endif; endforeach; endif; else: echo "" ;endif; ?>
 </dl>
 </body>
 

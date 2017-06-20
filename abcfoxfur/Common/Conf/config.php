@@ -9,7 +9,7 @@ return array(
     'DB_USER'               =>  'root',      // 用户名
     'DB_PWD'                =>  'y3070288',          // 密码
     'DB_PREFIX'             =>  'eco_',    // 数据库表前缀
-    'DEFAULT_MODULE' => 'Admin',
+    'DEFAULT_MODULE' => 'Home',
 //set custom constant directory in an array
     'TMPL_PARSE_STRING' => array(
         '__ADMIN__' => __ROOT__.'/Public/Admin',

@@ -32,13 +32,14 @@
 <div class="lefttop"><span></span>※ 控制面板 ※</div>
 <dl class="leftmenu">
     <volist name="topAuth" id="top">
+        <if condition="$top['is_show'] eq '1'">
         <dd>
             <div class="title">
                 <span><img src="__ADMIN__/images/leftico01.png"/></span>{$top.auth_name}
             </div>
             <ul class="menuson">
                 <volist name="subAuth" id="sub">
-                    <if condition="$sub['auth_pid'] eq $top['auth_id']">
+                    <if condition="$sub['auth_pid'] eq $top['auth_id'] and $sub['is_show'] eq '1'">
                         <li>
                             <cite></cite><a href="{:U($sub['auth_controller'].'/'.$sub['auth_action'])}"
                                             target="rightFrame">{$sub.auth_name}</a><i></i>
@@ -47,6 +48,7 @@
                 </volist>
             </ul>
         </dd>
+        </if>
     </volist>
 </dl>
 </body>

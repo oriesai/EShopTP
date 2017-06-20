@@ -55,19 +55,20 @@
                     <th>Authorization ID</th>
                     <th>Auth name</th>
                     <th>Auth pid</th>
+                    <th>show in menu?</th>
                     <th>Auth controller</th>
                     <th>Auth action</th>
                     <th>操作</th>
                 </tr>
             </thead>
             <tbody>
-            <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?><tr>
+            <?php if(is_array($authList)): $i = 0; $__LIST__ = $authList;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?><tr>
                     <td>
                         <input name="" type="checkbox" value="" />
                     </td>
-                    <td><?php echo ($v["auth_id"]); ?></td>
-                    <td><?php echo ($v["auth_name"]); ?></td>
-                    <td><?php echo ($v["auth_pid"]); ?></td>
+                    <td><?php echo ($v["id"]); ?></td>
+                    <td><?php echo (str_repeat('&nbsp;&nbsp;&nbsp;',$v["level"]*2)); ?>|--<?php echo ($v["auth_name"]); ?></td>
+                    <td> <?php if($v['is_show'] == 1): ?>show<?php else: ?>no show<?php endif; ?></td>
                     <td><?php echo ($v["auth_controller"]); ?></td>
                     <td><?php echo ($v["auth_action"]); ?></td>
                     <td><a href="<?php echo U('edit',array('auth_id' => $v['auth_id']));?>" class="tablelink">修改</a> <a href="<?php echo U('delete',array('auth_id' => $v['auth_id']));?>" class="tablelink"> 删除</a></td>
