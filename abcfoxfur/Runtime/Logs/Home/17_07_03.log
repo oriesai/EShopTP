@@ -1,0 +1,380 @@
+[ 2017-07-03T14:34:03+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.003387s ]
+INFO: [ app_init ] --END-- [ RunTime:0.026616s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.027560s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.027630s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000717s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000769s ]
+NOTIC: [8] Undefined index: Home_is_login D:\Projects\TPecommerce\abcfoxfur\Runtime\Cache\Home\059b0b69717fc9abbaa05d6cae3e6233.php 第 27 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.250667s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.250712s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.029021s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.029063s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.014893s ]
+INFO: [ app_end ] --END-- [ RunTime:0.014969s ]
+
+[ 2017-07-03T14:34:04+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000031s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000369s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000683s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000732s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000242s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000287s ]
+NOTIC: [8] Undefined index: Home_is_login D:\Projects\TPecommerce\abcfoxfur\Runtime\Cache\Home\059b0b69717fc9abbaa05d6cae3e6233.php 第 27 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.037424s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.037469s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000313s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000342s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000708s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000764s ]
+
+[ 2017-07-03T14:34:13+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000295s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000506s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000543s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000289s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000337s ]
+NOTIC: [8] Undefined index: Home_is_login D:\Projects\TPecommerce\abcfoxfur\Runtime\Cache\Home\059b0b69717fc9abbaa05d6cae3e6233.php 第 27 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.035928s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.035965s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000225s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000271s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001092s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001167s ]
+
+[ 2017-07-03T14:34:15+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000359s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000474s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000532s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000241s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000287s ]
+NOTIC: [8] Undefined index: Home_is_login D:\Projects\TPecommerce\abcfoxfur\Runtime\Cache\Home\059b0b69717fc9abbaa05d6cae3e6233.php 第 27 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.036785s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.036828s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000258s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000286s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000891s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000958s ]
+
+[ 2017-07-03T14:35:15+08:00 ] 127.0.0.1 /home/product/detail/id/1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000409s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000737s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000798s ]
+SQL: SHOW COLUMNS FROM `eco_product` [ RunTime:0.0798s ]
+SQL: SELECT * FROM `eco_product` WHERE `product_id` = 1 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SHOW COLUMNS FROM `eco_product_photos` [ RunTime:0.0426s ]
+SQL: SELECT * FROM `eco_product_photos` WHERE ( product_id=1 )  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `eco_product_attribute` [ RunTime:0.0197s ]
+SQL: SELECT pa.attr_id,`attr_value`,`attr_cate_name` FROM eco_product_attribute pa LEFT JOIN eco_product_attribute_cate as a on a.attr_cate_id=pa.attr_cate_id  WHERE ( pa.product_id=1 AND attr_cate_exp = 0 )  [ RunTime:0.0402s ]
+SQL: SELECT pa.attr_id,`attr_value`,`attr_cate_name` FROM eco_product_attribute pa LEFT JOIN eco_product_attribute_cate as a on a.attr_cate_id=pa.attr_cate_id  WHERE ( pa.product_id=1 AND attr_cate_exp = 1 )  [ RunTime:0.0004s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000370s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000415s ]
+NOTIC: [8] Undefined index: Home_is_login D:\Projects\TPecommerce\abcfoxfur\Runtime\Cache\Home\6265b227e30a335ba778f6fc362c8280.php 第 27 行.
+NOTIC: [8] Undefined index: sale_time D:\Projects\TPecommerce\abcfoxfur\Runtime\Cache\Home\6265b227e30a335ba778f6fc362c8280.php 第 807 行.
+NOTIC: [8] Undefined variable: number_price D:\Projects\TPecommerce\abcfoxfur\Runtime\Cache\Home\6265b227e30a335ba778f6fc362c8280.php 第 1132 行.
+NOTIC: [8] Undefined variable: number_price D:\Projects\TPecommerce\abcfoxfur\Runtime\Cache\Home\6265b227e30a335ba778f6fc362c8280.php 第 1133 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.134807s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.134849s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000219s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000246s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001369s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001448s ]
+
+[ 2017-07-03T14:35:27+08:00 ] 127.0.0.1 /Home/Cart/add.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000292s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000710s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000831s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000975s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001032s ]
+
+[ 2017-07-03T14:35:29+08:00 ] 127.0.0.1 /Home/Cart/flow1.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000357s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000890s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000966s ]
+SQL: SHOW COLUMNS FROM `eco_product` [ RunTime:0.0319s ]
+SQL: SELECT `product_small_logo` FROM `eco_product` WHERE `product_id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000087s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000149s ]
+NOTIC: [8] Undefined variable: getNumberPrice D:\Projects\TPecommerce\abcfoxfur\Runtime\Cache\Home\3204d3f07095286e94a1a6466045311b.php 第 85 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.089413s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.089472s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000941s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000999s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001125s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001176s ]
+
+[ 2017-07-03T14:35:45+08:00 ] 127.0.0.1 /home/product/detail/id/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000330s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000529s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000661s ]
+SQL: SHOW COLUMNS FROM `eco_product` [ RunTime:0.0184s ]
+SQL: SELECT * FROM `eco_product` WHERE `product_id` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `eco_product_photos` [ RunTime:0.0162s ]
+SQL: SELECT * FROM `eco_product_photos` WHERE ( product_id=2 )  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `eco_product_attribute` [ RunTime:0.0120s ]
+SQL: SELECT pa.attr_id,`attr_value`,`attr_cate_name` FROM eco_product_attribute pa LEFT JOIN eco_product_attribute_cate as a on a.attr_cate_id=pa.attr_cate_id  WHERE ( pa.product_id=2 AND attr_cate_exp = 0 )  [ RunTime:0.0004s ]
+SQL: SELECT pa.attr_id,`attr_value`,`attr_cate_name` FROM eco_product_attribute pa LEFT JOIN eco_product_attribute_cate as a on a.attr_cate_id=pa.attr_cate_id  WHERE ( pa.product_id=2 AND attr_cate_exp = 1 )  [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000334s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000381s ]
+NOTIC: [8] Undefined index: Home_is_login D:\Projects\TPecommerce\abcfoxfur\Runtime\Cache\Home\6265b227e30a335ba778f6fc362c8280.php 第 27 行.
+NOTIC: [8] Undefined offset: 0 D:\Projects\TPecommerce\abcfoxfur\Runtime\Cache\Home\6265b227e30a335ba778f6fc362c8280.php 第 771 行.
+NOTIC: [8] Undefined offset: 0 D:\Projects\TPecommerce\abcfoxfur\Runtime\Cache\Home\6265b227e30a335ba778f6fc362c8280.php 第 773 行.
+NOTIC: [8] Undefined index: sale_time D:\Projects\TPecommerce\abcfoxfur\Runtime\Cache\Home\6265b227e30a335ba778f6fc362c8280.php 第 807 行.
+NOTIC: [8] Undefined variable: number_price D:\Projects\TPecommerce\abcfoxfur\Runtime\Cache\Home\6265b227e30a335ba778f6fc362c8280.php 第 1132 行.
+NOTIC: [8] Undefined variable: number_price D:\Projects\TPecommerce\abcfoxfur\Runtime\Cache\Home\6265b227e30a335ba778f6fc362c8280.php 第 1133 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.078621s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.078658s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000219s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000248s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001678s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001801s ]
+
+[ 2017-07-03T14:35:51+08:00 ] 127.0.0.1 /home/product/detail/id/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000342s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000751s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000833s ]
+SQL: SHOW COLUMNS FROM `eco_product` [ RunTime:0.0177s ]
+SQL: SELECT * FROM `eco_product` WHERE `product_id` = 3 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `eco_product_photos` [ RunTime:0.0146s ]
+SQL: SELECT * FROM `eco_product_photos` WHERE ( product_id=3 )  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `eco_product_attribute` [ RunTime:0.0117s ]
+SQL: SELECT pa.attr_id,`attr_value`,`attr_cate_name` FROM eco_product_attribute pa LEFT JOIN eco_product_attribute_cate as a on a.attr_cate_id=pa.attr_cate_id  WHERE ( pa.product_id=3 AND attr_cate_exp = 0 )  [ RunTime:0.0003s ]
+SQL: SELECT pa.attr_id,`attr_value`,`attr_cate_name` FROM eco_product_attribute pa LEFT JOIN eco_product_attribute_cate as a on a.attr_cate_id=pa.attr_cate_id  WHERE ( pa.product_id=3 AND attr_cate_exp = 1 )  [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000321s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000385s ]
+NOTIC: [8] Undefined index: Home_is_login D:\Projects\TPecommerce\abcfoxfur\Runtime\Cache\Home\6265b227e30a335ba778f6fc362c8280.php 第 27 行.
+NOTIC: [8] Undefined offset: 0 D:\Projects\TPecommerce\abcfoxfur\Runtime\Cache\Home\6265b227e30a335ba778f6fc362c8280.php 第 771 行.
+NOTIC: [8] Undefined offset: 0 D:\Projects\TPecommerce\abcfoxfur\Runtime\Cache\Home\6265b227e30a335ba778f6fc362c8280.php 第 773 行.
+NOTIC: [8] Undefined index: sale_time D:\Projects\TPecommerce\abcfoxfur\Runtime\Cache\Home\6265b227e30a335ba778f6fc362c8280.php 第 807 行.
+NOTIC: [8] Undefined variable: number_price D:\Projects\TPecommerce\abcfoxfur\Runtime\Cache\Home\6265b227e30a335ba778f6fc362c8280.php 第 1132 行.
+NOTIC: [8] Undefined variable: number_price D:\Projects\TPecommerce\abcfoxfur\Runtime\Cache\Home\6265b227e30a335ba778f6fc362c8280.php 第 1133 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.384316s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.384362s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000480s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000514s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002039s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002315s ]
+
+[ 2017-07-03T14:36:37+08:00 ] 127.0.0.1 /home/product/detail/id/899
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000347s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000460s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000497s ]
+SQL: SHOW COLUMNS FROM `eco_product` [ RunTime:0.0174s ]
+SQL: SELECT * FROM `eco_product` WHERE `product_id` = 899 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `eco_product_photos` [ RunTime:0.0159s ]
+SQL: SELECT * FROM `eco_product_photos` WHERE ( product_id=899 )  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `eco_product_attribute` [ RunTime:0.0117s ]
+SQL: SELECT pa.attr_id,`attr_value`,`attr_cate_name` FROM eco_product_attribute pa LEFT JOIN eco_product_attribute_cate as a on a.attr_cate_id=pa.attr_cate_id  WHERE ( pa.product_id=899 AND attr_cate_exp = 0 )  [ RunTime:0.0005s ]
+SQL: SELECT pa.attr_id,`attr_value`,`attr_cate_name` FROM eco_product_attribute pa LEFT JOIN eco_product_attribute_cate as a on a.attr_cate_id=pa.attr_cate_id  WHERE ( pa.product_id=899 AND attr_cate_exp = 1 )  [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000340s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000402s ]
+NOTIC: [8] Undefined index: Home_is_login D:\Projects\TPecommerce\abcfoxfur\Runtime\Cache\Home\6265b227e30a335ba778f6fc362c8280.php 第 27 行.
+NOTIC: [8] Undefined index: sale_time D:\Projects\TPecommerce\abcfoxfur\Runtime\Cache\Home\6265b227e30a335ba778f6fc362c8280.php 第 807 行.
+NOTIC: [8] Undefined variable: number_price D:\Projects\TPecommerce\abcfoxfur\Runtime\Cache\Home\6265b227e30a335ba778f6fc362c8280.php 第 1132 行.
+NOTIC: [8] Undefined variable: number_price D:\Projects\TPecommerce\abcfoxfur\Runtime\Cache\Home\6265b227e30a335ba778f6fc362c8280.php 第 1133 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.074620s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.074666s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000244s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000290s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001535s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001609s ]
+
+[ 2017-07-03T14:36:42+08:00 ] 127.0.0.1 /Home/Cart/add.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000290s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000607s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000642s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000657s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000698s ]
+
+[ 2017-07-03T14:36:44+08:00 ] 127.0.0.1 /Home/Cart/flow1.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000054s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001211s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000770s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000849s ]
+SQL: SHOW COLUMNS FROM `eco_product` [ RunTime:0.0184s ]
+SQL: SELECT `product_small_logo` FROM `eco_product` WHERE `product_id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT `product_small_logo` FROM `eco_product` WHERE `product_id` = 899 LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000080s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000178s ]
+NOTIC: [8] Undefined variable: getNumberPrice D:\Projects\TPecommerce\abcfoxfur\Runtime\Cache\Home\3204d3f07095286e94a1a6466045311b.php 第 85 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009613s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009689s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000328s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000357s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000470s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000499s ]
+
+[ 2017-07-03T14:36:49+08:00 ] 127.0.0.1 /Home/Cart/flow2.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000286s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000450s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000487s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000041s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000082s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.062742s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.062791s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000361s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000389s ]
+
+[ 2017-07-03T14:36:53+08:00 ] 127.0.0.1 /Home/Member/login.html?redire=Cart/flow2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000341s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000461s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000502s ]
+SQL: SHOW COLUMNS FROM `eco_member` [ RunTime:0.0661s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000066s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000108s ]
+NOTIC: [8] Undefined index: Home_is_login D:\Projects\TPecommerce\abcfoxfur\Runtime\Cache\Home\2a0f08239a51657400ec138f3fbd82f7.php 第 21 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.068499s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.068550s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000385s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000414s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000467s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000496s ]
+
+[ 2017-07-03T14:36:59+08:00 ] 127.0.0.1 /Home/Member/login.html?redire=Cart/flow2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000333s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000566s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000608s ]
+SQL: SHOW COLUMNS FROM `eco_member` [ RunTime:0.0137s ]
+SQL: SELECT * FROM `eco_member` WHERE ( member_name="michie" ) LIMIT 1   [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000039s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000084s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006150s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006211s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000414s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000461s ]
+
+[ 2017-07-03T14:37:00+08:00 ] 127.0.0.1 /Home/Cart/flow2.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000377s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000515s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000559s ]
+SQL: SHOW COLUMNS FROM `eco_product` [ RunTime:0.0176s ]
+SQL: SELECT `product_small_logo` FROM `eco_product` WHERE `product_id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT `product_small_logo` FROM `eco_product` WHERE `product_id` = 899 LIMIT 1   [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000112s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000154s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.055841s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.055924s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000383s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000417s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000778s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000888s ]
+
+[ 2017-07-03T14:37:11+08:00 ] 127.0.0.1 /Home/Cart/buy.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000348s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000520s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000558s ]
+SQL: SHOW COLUMNS FROM `eco_order` [ RunTime:0.0685s ]
+SQL: INSERT INTO `eco_order` (`user_id`,`order_number`,`order_price`,`order_pay`,`order_status`,`created_time`,`updated_time`) VALUES ('1','20170703143711669888','198','0','0','1499063831','1499063831') [ RunTime:0.0465s ]
+SQL: SHOW COLUMNS FROM `eco_order_goods` [ RunTime:0.0129s ]
+SQL: INSERT INTO `eco_order_goods` (`order_id`,`goods_id`,`goods_price`,`goods_total_price`) VALUES ('15','1','99','99') [ RunTime:0.0219s ]
+SQL: INSERT INTO `eco_order_goods` (`order_id`,`goods_id`,`goods_price`,`goods_total_price`) VALUES ('15','899','99','99') [ RunTime:0.0194s ]
+NOTIC: [8] Undefined property: Library\Cart::$cartInfo D:\Projects\TPecommerce\abcfoxfur\Library\Cart.class.php 第 110 行.
+SQL: SHOW COLUMNS FROM `eco_alipay` [ RunTime:0.0147s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000528s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000572s ]
+

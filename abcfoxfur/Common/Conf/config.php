@@ -19,4 +19,6 @@ return array(
     ),
     // 默认参数过滤方法 用于I函数...
         'DEFAULT_FILTER'        =>  'filterXSS',
+    //change url model to rewrite mode(2), all url change to .com/m/v/c
+    'URL_MODEL' =>2,
 );

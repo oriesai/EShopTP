@@ -3182,3 +3182,24 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000888s ]
 INFO: [ app_end ] --END-- [ RunTime:0.000957s ]
 
+[ 2017-06-20T14:28:44+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000031s ]
+INFO: [ app_init ] --END-- [ RunTime:0.013132s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.015874s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015947s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000591s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000646s ]
+NOTIC: [8] Undefined index: Home_is_login D:\Projects\TPecommerce\abcfoxfur\Runtime\Cache\Home\059b0b69717fc9abbaa05d6cae3e6233.php 第 27 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.196525s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.196571s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.011209s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.011250s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.019330s ]
+INFO: [ app_end ] --END-- [ RunTime:0.019411s ]
+

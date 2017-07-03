@@ -17,7 +17,7 @@
 				<input type="text" name='username' id="username" placeholder="Username">
 				<input type="password" name="pwd" id="password" placeholder="Password">
 				<input type="test" name="verify" id="captcha" placeholder="captcha">
-	<p><img class='code' id="changeCode" src="/index.php/Admin/Index/genCode/" alt="" /></p>
+	<p><img class='code' id="changeCode" src="/Admin/Index/genCode/" alt="" /></p>
 				<button type="submit" id="login-button">Login</button>
 				<p>New to us?  <a href="#">sign up here</a></p>
 			</form>

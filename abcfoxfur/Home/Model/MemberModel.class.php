@@ -11,20 +11,24 @@ class MemberModel extends Model{
     protected $_map = array(
         //reflection rules, fake name=> real name
         'username' =>'member_name',
-        'password' =>'member_pwd'
+        'password' =>'member_pwd',
+        'mobile' =>'member_mobile',
+        'email' =>'member_email'
     );
 
     //automatically create time, salt and encrypt pw
     protected $_auto = array(
       array('created_time','time',1,'function'),
         array('login_time','time',3,'function'),
-        array('member_salt','createSalt',1,'callback'),
+        array('member_salt','createSalt',3,'callback'),
         array('member_pwd','password',3,'callback')
     );
     protected $_validate = array(
         array('member_name','require','name is a required field'),
         array('member_name','','name has existed!',1,'unique'),
-        array('member_pwd','check_pwd','password does not match!',1,'confirm')
+        //check password
+        array('member_pwd','check_pwd','password does not match!',1,'confirm',3),
+        array('sms_code','checkSMS','wrong verify code',1,'callback',1),
 
     );
 
@@ -41,6 +45,10 @@ class MemberModel extends Model{
     public function password($data){
         //encryption formula
         return sha1(md5($this->salt.$data).$this->salt);
+    }
+
+    public function checkSMS($data){
+        return $data ==session('sms_code');
     }
 
 }

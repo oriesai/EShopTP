@@ -63,7 +63,7 @@
     </ul>
 </div>
 <div class="formbody">
-    <div class="formtitle"><span class="current">基本信息</span><span>商品描述</span><span>商品相冊</span></div>
+    <div class="formtitle"><span class="current">基本信息</span><span>商品描述</span></div>
     <form action="<?php echo U('edit');?>" method="post" enctype="multipart/form-data">
         <ul class="forminfo">
             <li>

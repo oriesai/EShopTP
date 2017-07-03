@@ -24,7 +24,9 @@
         </div>
         <div class="topnav_right fr">
             <ul>
-                <li>您好，欢迎来到京西！[<a href="login.html">登录</a>] [<a href="register.html">免费注册</a>]</li>
+                <?php if($_SESSION['Home_is_login']== 1): ?><li>Welcome back, <?php echo (session('Home_member_name')); ?>！[<a href="<?php echo U('Member/logout');?>">logout</a>] </li>
+                    <?php else: ?>
+                <li>Welcome to JingXi！[<a href="<?php echo U('Member/login');?>">登录</a>] [<a href="<?php echo U('Member/register');?>">免费注册</a>]</li><?php endif; ?>
                 <li class="line">|</li>
                 <li>我的订单</li>
                 <li class="line">|</li>

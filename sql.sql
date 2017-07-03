@@ -44,6 +44,7 @@ PRIMARY KEY (attr_id),
 KEY (type_id)
 )engine=Innodb charset=utf8 comment='product type attributes category table'
 
+-- a table that shows relationship of product - attributes - and attribute value available for the corresponding attribute
 CREATE TABLE `eco_product_attribute`(
 attr_id SMALLINT unsigned NOT NULL auto_increment,
 product_id mediumint unsigned  NOT NULL,
@@ -97,3 +98,47 @@ CREATE TABLE `eco_member`(
   PRIMARY KEY (`member_id`),
   KEY `member_name` (`member_name`)
 )engine=innodb comment='member table'
+
+-- 订单表
+create table `eco_order` (
+  `order_id` int unsigned not null auto_increment comment '主键id',
+  `user_id` mediumint unsigned not null comment '下单会员的id',
+  `order_number` varchar(32) not null comment '订单编号',
+  `order_price` decimal(10,2) not null default '0.00' comment '订单总金额',
+  `order_pay` tinyint not null default 0 comment '支付方式,0:支付宝,1:微信,2:银行卡快捷支付',
+  `order_invoice_title` tinyint not null default 0 comment '发票抬头,0:个人,1:公司',
+  `order_invoice_company` varchar(32) not null default '' comment '公司名称',
+  `order_invoice_content` varchar(32) not null default '' comment '发票内容',
+  `consignee_id` int unsigned not null comment '收货人地址-外键',
+  `order_status` tinyint not null default '0' comment '订单状态:0,未付款,1:已付款,2:未确认[表示已支付]',
+  `created_time` int unsigned not null comment '订单记录生成时间',
+  `updated_time` int unsigned not null comment '订单记录修改时间',
+  primary key (`order_id`),
+  unique key `order_number` (`order_number`),
+--   optimize serach by adding keys
+  key `consignee_id` (`consignee_id`),
+  key `created_time` (`created_time`)
+) engine=innodb comment='订单表';
+
+
+-- 订单-商品关系表
+create table `eco_order_goods` (
+  `id` int unsigned not null auto_increment comment '主键ID',
+  `order_id` int unsigned not null comment '订单ID',
+  `goods_id` mediumint unsigned not null comment '商品ID',
+  `goods_price` decimal(10,2) not null default '0.00' comment '商品单价',
+  `goods_number` tinyint not null default 1 comment '购买单个商品数量',
+  `goods_total_price` decimal(10,2) not null default '0.00' comment '商品小计价格',
+  primary key (`id`),
+  key `order_id` (`order_id`),
+  key `goods_id` (`goods_id`)
+) engine=innodb comment='商品订单关联表';
+
+CREATE TABLE `eco_alipay`(
+  `id` int unsigned not null auto_increment comment '主键ID',
+ `WIDout_trade_no` INT unsigned not null,
+    `WIDsubject` VARCHAR(255) not null,
+`WIDtotal_fee` DECIMAL unsigned NOT NULL,
+`WIDbody` VARCHAR(255) DEFAULT '',
+primary key (id)
+)engine=innodb comment='alipay table';

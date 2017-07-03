@@ -45,55 +45,140 @@
 
 
 
+<style>
+    .login_form .txt2 {
+        width: 150px;
+    }
 
-	<!-- 登录主体部分start -->
-	<div class="login w990 bc mt10 regist">
-		<div class="login_hd">
-			<h2>用户注册</h2>
-			<b></b>
-		</div>
-		<div class="login_bd">
-			<div class="login_form fl">
-				<form action="" method="post">
-					<ul>
-						<li>
-							<label for="">用户名：</label>
-							<input type="text" class="txt" name="username" />
-							<p>3-20位字符，可由中文、字母、数字和下划线组成</p>
-						</li>
-						<li>
-							<label for="">密码：</label>
-							<input type="password" class="txt" name="password" />
-							<p>6-20位字符，可使用字母、数字和符号的组合，不建议使用纯数字、纯字母、纯符号</p>
-						</li>
-						<li>
-							<label for="">确认密码：</label>
-							<input type="password" class="txt" name="check_pwd" />
-							<p> <span>请再次输入密码</p>
-						</li>
-						<li>
-							<label for="">&nbsp;</label>
-							<input value="1" name="is_read" type="checkbox" class="chb" checked="checked" /> 我已阅读并同意《用户注册协议》
-						</li>
-						<li>
-							<label for="">&nbsp;</label>
-							<input type="submit" value="" class="login_btn" />
-						</li>
-					</ul>
-				</form>
+    .sms_btn {
+        color: #fff;
+        background-color: #ff4444;
+        display: inline-block;
+        cursor: pointer;
+        height: 32px;
+        line-height: 32px;
+        font-size: 14px;
+        width: 140px;
+        text-align: center;
+    }
+    .disabled{
+        cursor:not-allowed;
+        background-color: #ffcccc;
+    }
+</style>
+<!-- 登录主体部分start -->
+<div class="login w990 bc mt10 regist">
+    <div class="login_hd">
+        <h2>用户注册</h2>
+        <b></b>
+    </div>
+    <div class="login_bd">
+        <div class="login_form fl">
+            <form action="" method="post">
+                <ul>
+                    <li>
+                        <label for="">用户名：</label>
+                        <input type="text" class="txt" name="username"/>
+                        <p>3-20位字符，可由中文、字母、数字和下划线组成</p>
+                    </li>
+                    <li>
+                        <label for="">手機號碼：</label>
+                        <input type="text" class="txt" name="mobile"/>
+                        <p>請填寫手機號碼</p>
+                    </li>
+                    <li>
+                        <label for="">email：</label>
+                        <input type="text" class="txt" name="email"/>
+                        <p>用於找回密碼</p>
+                    </li>
+                    <li>
+                        <label for="">密码：</label>
+                        <input type="password" class="txt" name="password"/>
+                        <p>6-20位字符，可使用字母、数字和符号的组合，不建议使用纯数字、纯字母、纯符号</p>
+                    </li>
+                    <li>
+                        <label for="">确认密码：</label>
+                        <input type="password" class="txt" name="check_pwd"/>
+                        <p><span>请再次输入密码</p>
+                    </li>
+                    <li>
+                        <label for="">驗證碼：</label>
+                        <input type="text" class="txt txt2" name="sms_code"/>
+                        <span class="sms_btn disabled">點擊發送短信驗證碼</span>
+                        <p>發送手機驗證碼</p>
+                    </li>
+                    <li>
+                        <label for="">&nbsp;</label>
+                        <input value="1" name="is_read" type="checkbox" class="chb" checked="checked"/> 我已阅读并同意《用户注册协议》
+                    </li>
+                    <li>
+                        <label for="">&nbsp;</label>
+                        <input type="submit" value="" class="login_btn"/>
+                    </li>
+                </ul>
+            </form>
 
-				
-			</div>
-			
-			<div class="mobile fl">
-				<h3>手机快速注册</h3>			
-				<p>中国大陆手机用户，编辑短信 “<strong>XX</strong>”发送到：</p>
-				<p><strong>1069099988</strong></p>
-			</div>
 
-		</div>
-	</div>
-	<!-- 登录主体部分end -->
+        </div>
+
+        <div class="mobile fl">
+            <h3>手机快速注册</h3>
+            <p>中国大陆手机用户，编辑短信 “<strong>XX</strong>”发送到：</p>
+            <p><strong>1069099988</strong></p>
+        </div>
+
+    </div>
+</div>
+<!-- 登录主体部分end -->
+<script src="/Public/Home/js/jquery-1.8.3.min.js"></script>
+<script>
+    var t;
+    var timer=0;  //status of timer, 1 is active, 0 is inactive
+    //when mobile is entered and the format is correct. also the timer is inactive, remove the disable attr, if neither of those, add disabled class
+    $('input[name=mobile]').blur(function () {
+        var mb = $('input[name=mobile]').val();
+        if ((/\d{11}/.test(mb)) && timer == 0) {
+            $('.sms_btn').removeClass('disabled');
+        }else{
+        $('.sms_btn').addClass('disabled')
+
+        }
+    });
+//    <!--send ajax to back end for routing sms to servicer-->
+    //store the button object, as we need to change the text on it later on
+    $('.sms_btn').click(function () {
+        var _this = $(this);
+        //if the button has disabled class, prevent user from clicking and running timer
+        var res = _this.hasClass('disabled');
+        if (res) {
+            return false;
+        }
+        //set timer to 5s
+        var time = 5;
+        //add disabled class when clicked (premise is it doesnt have disabled class)
+        $('.sms_btn').addClass('disabled');
+        //timer interval to be 1000 minusing, if time is lesser then one,remove disabled and rewrite html in the button, clear timer to prevent it from going negative
+            t = setInterval(function () {
+           if(time <=1 ){
+               $('.sms_btn').removeClass('disabled');
+               _this.html('點擊發送短信驗證碼');
+               //stop timer when it hits 0
+               clearInterval(t);
+           }else{
+               // write seconds in button interior
+               _this.html( --time + '秒');
+           }
+        },1000);
+
+    var mb =$('input[name=mobile]').val();
+
+//use ajax to send mobile number to sms_verify
+        $.get("<?php echo U('Member/sms_verify');?>", {'mobile':mb}, function (msg) {
+            console.log(msg);
+        });
+    });
+
+</script>
 
 <div style="clear:both;"></div>
 <!-- 底部版权 start -->
